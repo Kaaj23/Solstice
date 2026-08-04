@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ======================================================================
+   SOLSTICE — Design Tokens
+   High Parfumerie Refracted Through Light.
+
+   Semantic shadcn/ui tokens (HSL triplets, no hsl() wrapper) live here so
+   both Tailwind's `hsl(var(--x))` utilities and raw CSS can consume them.
+   The theme is dark-first by design: `:root` already carries the dark
+   values, `.dark` restates them explicitly for next-themes, and `.light`
+   is provided for completeness even though SOLSTICE launches dark-only.
+   ====================================================================== */
+
+@layer base {
+  :root {
+    --background: 0 0% 2%; /* #050505 — Deep Midnight Black */
+    --foreground: 45 20% 95%; /* warm off-white */
+
+    --card: 240 8% 8%; /* #121216 — Obsidian Surface */
+    --card-foreground: 45 20% 95%;
+
+    --popover: 240 9% 10%; /* #18181D — Obsidian Elevated */
+    --popover-foreground: 45 20% 95%;
+
+    --primary: 46 64% 52%; /* #D4AF37 — Refracted Gold */
+    --primary-foreground: 0 0% 4%;
+
+    --secondary: 240 9% 10%;
+    --secondary-foreground: 45 20% 95%;
+
+    --muted: 240 8% 15%;
+    --muted-foreground: 0 0% 63%;
+
+    --accent: 46 64% 52%;
+    --accent-foreground: 0 0% 4%;
+
+    --destructive: 6 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 8% 16%;
+    --input: 240 8% 16%;
+    --ring: 46 64% 52%;
+
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 0 0% 2%;
+    --foreground: 45 20% 95%;
+    --card: 240 8% 8%;
+    --card-foreground: 45 20% 95%;
+    --popover: 240 9% 10%;
+    --popover-foreground: 45 20% 95%;
+    --primary: 46 64% 52%;
+    --primary-foreground: 0 0% 4%;
+    --secondary: 240 9% 10%;
+    --secondary-foreground: 45 20% 95%;
+    --muted: 240 8% 15%;
+    --muted-foreground: 0 0% 63%;
+    --accent: 46 64% 52%;
+    --accent-foreground: 0 0% 4%;
+    --destructive: 6 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 8% 16%;
+    --input: 240 8% 16%;
+    --ring: 46 64% 52%;
+  }
+
+  /* Provided for completeness / future use — SOLSTICE launches dark-only. */
+  .light {
+    --background: 45 33% 97%;
+    --foreground: 0 0% 4%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 4%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 4%;
+    --primary: 46 64% 42%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 45 20% 93%;
+    --secondary-foreground: 0 0% 4%;
+    --muted: 45 15% 90%;
+    --muted-foreground: 0 0% 40%;
+    --accent: 46 64% 42%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 6 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 45 15% 87%;
+    --input: 45 15% 87%;
+    --ring: 46 64% 42%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground antialiased;
+    font-feature-settings:
+      "ss01" 1,
+      "cv01" 1;
+  }
+
+  ::selection {
+    background-color: hsl(var(--primary) / 0.35);
+    color: hsl(var(--foreground));
+  }
+
+  /* Minimal, on-brand scrollbar (WebKit + Firefox). */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted)) transparent;
+  }
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  *::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--muted));
+    border-radius: 999px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* ======================================================================
+   Refracted-light primitives — glassmorphism panels + gradient text
+   used across scent auras (Aurora / Eclipse / Corona / Nocturne).
+   ====================================================================== */
+
+@layer components {
+  .glass-panel {
+    @apply border-white/[0.08] bg-white/[0.04] backdrop-blur-glass;
+    @apply border shadow-glass;
+  }
+
+  .glass-panel-elevated {
+    @apply glass-panel bg-white/[0.06];
+    background-image: theme("backgroundImage.glass-sheen");
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-r from-gold-200 via-gold-500 to-gold-300 bg-clip-text text-transparent;
+  }
+
+  .eyebrow {
+    @apply font-mono text-eyebrow uppercase tracking-[0.28em] text-muted-foreground;
+  }
+}
