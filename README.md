@@ -146,4 +146,3 @@ Generated components land in `components/ui/`.
 ## License
 
 Proprietary — all rights reserved.
-.
