@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import { siteConfig } from "@/config/site";
+import { MotionProvider } from "@/components/shared/motion-provider";
 import { ThemeProvider } from "@/components/shared/theme-provider";
 
 import "./globals.css";
@@ -96,7 +97,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
+          <MotionProvider>{children}</MotionProvider>
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>
