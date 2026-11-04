@@ -1,30 +1,26 @@
 "use client";
 
+import { useState } from "react";
+
 export default function Navbar() {
+  const [open, setOpen] = useState(false);
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 glass-nav">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <a href="/" className="text-2xl font-bold tracking-widest text-gold-gradient uppercase">
-          Solstice
-        </a>
-        <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
-          <a href="#fragrances" className="hover:text-amber-400 transition-colors">
-            Fragrances
-          </a>
-          <a href="#reviews" className="hover:text-amber-400 transition-colors">
-            Reviews
-          </a>
-          <a href="#brands" className="hover:text-amber-400 transition-colors">
-            Brands
-          </a>
-          <a href="#finder" className="hover:text-amber-400 transition-colors">
-            AI Finder
-          </a>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#050505]/85 backdrop-blur-xl">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+        <a href="#" aria-label="SOLSTICE home" className="text-xl font-semibold tracking-[0.3em] text-[#e8d6a4]">SOLSTICE</a>
+        <nav aria-label="Main navigation" className="hidden items-center gap-9 text-[11px] uppercase tracking-[0.2em] text-white/70 md:flex">
+          <a className="hover:text-white" href="#collection">The collection</a>
+          <a className="hover:text-white" href="#philosophy">Our philosophy</a>
+          <a className="hover:text-white" href="#discover">Find your light</a>
         </nav>
-        <button className="px-5 py-2.5 text-xs uppercase tracking-wider font-semibold rounded-full bg-gradient-to-r from-amber-500 to-yellow-600 text-black hover:opacity-90 transition-all gold-glow">
-          Explore Notes
-        </button>
+        <a href="#collection" className="hidden border border-[#d4af37]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em] text-[#e8d6a4] transition-colors hover:bg-[#d4af37] hover:text-black md:block">Explore</a>
+        <button type="button" aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen(!open)} className="border border-white/20 px-4 py-2 text-xs uppercase tracking-widest md:hidden">{open ? "Close" : "Menu"}</button>
       </div>
+      {open && <nav id="mobile-navigation" aria-label="Mobile navigation" className="flex flex-col gap-5 border-t border-white/10 bg-[#090909] px-6 py-7 text-xs uppercase tracking-[0.2em] md:hidden">
+        <a href="#collection" onClick={() => setOpen(false)}>The collection</a>
+        <a href="#philosophy" onClick={() => setOpen(false)}>Our philosophy</a>
+        <a href="#discover" onClick={() => setOpen(false)}>Find your light</a>
+      </nav>}
     </header>
   );
 }
