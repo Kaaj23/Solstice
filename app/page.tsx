@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Footer from "../components/Footer";
@@ -25,7 +26,7 @@ export default function Home() {
         <div className="grid gap-8 md:grid-cols-2">
           {fragrances.map((scent) => (
             <article key={scent.name} className="group overflow-hidden border border-white/10 bg-[#101014] transition-colors hover:border-[#d4af37]/40">
-              <div className={`relative aspect-[4/3] overflow-hidden bg-[#121216] aura-${scent.color}`}>
+              <Link href={`/fragrances/${scent.name.toLowerCase()}`} aria-label={`Explore ${scent.name}`} className="block">\n              <div className={`relative aspect-[4/3] overflow-hidden bg-[#121216] aura-${scent.color}`}>
                 <div
                   role="img"
                   aria-label={`SOLSTICE ${scent.name} perfume bottle and packaging concept`}
@@ -34,13 +35,13 @@ export default function Home() {
                 />
                 <span className="absolute left-5 top-5 border border-white/20 bg-black/60 px-3 py-2 text-[10px] uppercase tracking-[0.22em] text-white/85 backdrop-blur-md">No. {scent.number} / Eau de parfum concept</span>
               </div>
-              <div className="p-7 md:p-10">
+              </Link>\n              <div className="p-7 md:p-10">
                 <p className="mb-3 text-[10px] uppercase tracking-[0.28em] text-[#d4af37]">{scent.mood}</p>
-                <h3 className="font-display text-4xl md:text-5xl">{scent.name}</h3>
+                <h3 className="font-display text-4xl md:text-5xl"><Link href={`/fragrances/${scent.name.toLowerCase()}`} className="hover:text-[#d4af37]">{scent.name}</Link></h3>
                 <p className="mt-4 text-sm leading-7 text-white/70">{scent.description}</p>
                 <div className="mt-7 border-t border-white/10 pt-5">
                   <p className="mb-2 text-[10px] uppercase tracking-[0.25em] text-white/45">The fragrance notes</p>
-                  <p className="text-xs leading-7 text-white/70">{scent.notes}</p>
+                  <p className="text-xs leading-7 text-white/70">{scent.notes}</p>\n                  <Link href={`/fragrances/${scent.name.toLowerCase()}`} className="mt-6 inline-block text-xs uppercase tracking-[0.2em] text-[#d4af37] hover:text-white">Discover fragrance →</Link>
                 </div>
               </div>
             </article>
