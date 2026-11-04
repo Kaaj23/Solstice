@@ -1,38 +1,74 @@
+import Link from "next/link";
+
+/**
+ * Hero motion is CSS-only: a slow drifting pool of light behind the headline
+ * and a staggered entrance for the copy. Both are switched off under
+ * `prefers-reduced-motion` (see globals.css), and neither can cause hydration
+ * differences or layout shift because they only touch opacity and transform.
+ */
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 px-6 overflow-hidden">
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-amber-600/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="relative z-10 max-w-4xl mx-auto text-center space-y-8">
-        <div className="inline-block px-4 py-1.5 rounded-full glass-panel text-xs font-semibold tracking-widest uppercase text-amber-400 border-amber-500/30">
-          Curated Luxury Fragrance Intelligence
-        </div>
-
-        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-tight">
-          Deciphering the Art of <br />
-          <span className="text-gold-gradient">Haute Parfumerie</span>
-        </h1>
-
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
-          Elevated fragrance reviews, olfactory breakdown analytics, and AI-driven scent matching designed for the modern connoisseur.
+    <section className="relative flex min-h-screen items-center justify-center overflow-hidden px-6 pb-24 pt-32 text-center">
+      <div
+        aria-hidden="true"
+        className="hero-atmosphere pointer-events-none absolute inset-0"
+      />
+      <div
+        aria-hidden="true"
+        className="light-drift pointer-events-none absolute inset-[-10%]"
+        style={{
+          background:
+            "radial-gradient(ellipse 30% 36% at 55% 44%, rgba(212,175,55,.11), transparent 70%)",
+        }}
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-[44%] h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#d4af37]/20 shadow-[0_0_110px_25px_rgba(212,175,55,0.08)] md:h-[520px] md:w-[520px]"
+      />
+      <div className="relative z-10 mx-auto max-w-5xl">
+        <p className="rise-in mb-9 text-[10px] uppercase tracking-[0.45em] text-[#e2c979] md:text-xs">
+          An exploration of the extraordinary
         </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <h1 className="rise-in font-display text-[clamp(2.75rem,15vw,4.5rem)] font-normal leading-[0.92] tracking-[-0.055em] md:text-[clamp(4.2rem,13vw,11rem)]">
+          SOLSTICE
+        </h1>
+        <p
+          className="rise-in mt-7 font-display text-2xl italic text-[#e6d9bb] md:text-4xl"
+          style={{ animationDelay: "200ms" }}
+        >
+          Scents Defined by Light.
+        </p>
+        <p
+          className="rise-in mx-auto mt-9 max-w-lg text-sm leading-8 text-white/60 md:text-base"
+          style={{ animationDelay: "340ms" }}
+        >
+          Where the phenomena of light become the art of fragrance. Four worlds. Four
+          atmospheres. An entirely new way to experience scent.
+        </p>
+        <div
+          className="rise-in mt-11 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
+          style={{ animationDelay: "480ms" }}
+        >
           <a
-            href="#reviews"
-            className="w-full sm:w-auto px-8 py-4 rounded-full bg-amber-500 text-black font-semibold text-sm tracking-wide uppercase gold-glow hover:bg-amber-400 transition-all"
+            href="#collection"
+            className="inline-flex min-h-12 items-center border border-[#d4af37]/70 bg-black/30 px-10 text-[11px] uppercase tracking-[0.25em] text-[#e9d6a0] transition-all hover:bg-[#d4af37] hover:text-black"
           >
-            Discover Reviews
+            Enter the collection
           </a>
-          <a
-            href="#finder"
-            className="w-full sm:w-auto px-8 py-4 rounded-full glass-panel text-white font-semibold text-sm tracking-wide uppercase hover:bg-white/10 transition-all"
+          <Link
+            href="/find-your-light"
+            className="inline-flex min-h-12 items-center px-6 text-[11px] uppercase tracking-[0.25em] text-white/60 transition-colors hover:text-white"
           >
-            AI Scent Finder
-          </a>
+            Find your light
+          </Link>
         </div>
       </div>
+      <a
+        href="#collection"
+        className="absolute bottom-6 left-1/2 inline-flex min-h-11 -translate-x-1/2 items-center whitespace-nowrap text-[10px] uppercase tracking-[0.35em] text-white/45 transition-colors hover:text-white/80"
+      >
+        Scroll to discover ↓
+      </a>
     </section>
   );
 }

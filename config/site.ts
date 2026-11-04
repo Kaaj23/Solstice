@@ -1,52 +1,22 @@
-/**
- * Central site configuration for SOLSTICE.
- *
- * Consumed by `app/layout.tsx` for metadata and, in later phases, by
- * navigation, footer, and SEO components. Keep this the single source of
- * truth for brand copy that appears in more than one place.
- */
-
 export const siteConfig = {
   name: "SOLSTICE",
-  tagline: "High Parfumerie Refracted Through Light.",
-  description:
-    "SOLSTICE is a luxury niche fragrance house and architectural review platform where every scent is defined by an atmospheric light phenomenon — Aurora, Eclipse, Corona, and Nocturne.",
-  url: "https://solstice.com",
+  tagline: "Scents Defined by Light.",
+  description: "SOLSTICE is a luxury niche fragrance house inspired by atmospheric light phenomena. Discover Aurora, Eclipse, Corona and Nocturne.",
+  url: "https://example.com",
   ogImage: "/images/og-solstice.jpg",
   locale: "en-US",
   themeColor: "#050505",
-
-  keywords: [
-    "niche fragrance",
-    "luxury perfume",
-    "fragrance reviews",
-    "perfume house",
-    "SOLSTICE",
-    "high parfumerie",
-    "designer fragrance",
+  keywords: ["SOLSTICE", "luxury fragrance", "niche perfumery", "Aurora", "Eclipse", "Corona", "Nocturne"],
+  creator: { name: "SOLSTICE", twitter: "" },
+  links: { twitter: "", instagram: "", tiktok: "" },
+  palette: { midnight: "#050505", obsidian: "#121216", gold: "#D4AF37" },
+  /** Single source for the header, mobile menu and footer navigation. */
+  nav: [
+    { href: "/", label: "Home" },
+    { href: "/#collection", label: "The collection" },
+    { href: "/find-your-light", label: "Find your light" },
+    { href: "/discovery-set", label: "Discovery set" },
+    { href: "/#philosophy", label: "Our philosophy" },
   ],
-
-  creator: {
-    name: "SOLSTICE",
-    twitter: "@solstice",
-  },
-
-  links: {
-    twitter: "https://twitter.com/solstice",
-    instagram: "https://instagram.com/solstice",
-    tiktok: "https://tiktok.com/@solstice",
-  },
-
-  /**
-   * Brand palette mirrored from `tailwind.config.ts` for contexts that
-   * need raw hex values (metadata theme-color, email templates, canvas /
-   * SVG generation) rather than Tailwind utility classes.
-   */
-  palette: {
-    midnight: "#050505",
-    obsidian: "#121216",
-    gold: "#D4AF37",
-  },
 } as const;
-
 export type SiteConfig = typeof siteConfig;

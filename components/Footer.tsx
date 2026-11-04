@@ -1,21 +1,37 @@
-"use client";
+import Link from "next/link";
+
+import { siteConfig } from "@/config/site";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-black/40 py-12 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+    <footer className="border-t border-white/10 bg-[#080808] px-6 py-12">
+      <div className="mx-auto flex max-w-7xl flex-col justify-between gap-10 lg:flex-row lg:items-end">
         <div>
-          <span className="text-xl font-bold tracking-widest text-gold-gradient uppercase">
-            Solstice
-          </span>
-          <p className="text-xs text-gray-500 mt-2">
-            © {new Date().getFullYear()} SOLSTICE. All rights reserved.
-          </p>
+          <Link
+            href="/"
+            className="inline-flex min-h-11 items-center text-xl tracking-[0.3em] text-[#e8d6a4]"
+          >
+            SOLSTICE
+          </Link>
+          <p className="mt-3 font-display italic text-white/60">{siteConfig.tagline}</p>
         </div>
-        <div className="flex space-x-6 text-xs text-gray-400">
-          <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
-          <a href="#" className="hover:text-white transition-colors">Contact</a>
+        <nav
+          aria-label="Footer navigation"
+          className="flex flex-wrap gap-x-7 text-[11px] uppercase tracking-[0.2em] text-white/55"
+        >
+          {siteConfig.nav.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="inline-flex min-h-11 items-center transition-colors hover:text-white"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
+        <div className="text-xs leading-7 text-white/45">
+          <p>© {new Date().getFullYear()} SOLSTICE. All rights reserved.</p>
+          <p>Fragrance concepts in development.</p>
         </div>
       </div>
     </footer>
