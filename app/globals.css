@@ -3,37 +3,37 @@
 @tailwind utilities;
 
 :root {
-  --background: #090a0f;
-  --foreground: #f3f4f6;
+  --background: 0 0% 2%;
+  --foreground: 39 35% 94%;
+  --card: 240 10% 7%;
+  --card-foreground: 39 35% 94%;
+  --popover: 240 10% 7%;
+  --popover-foreground: 39 35% 94%;
+  --primary: 45 65% 52%;
+  --primary-foreground: 0 0% 3%;
+  --secondary: 240 5% 12%;
+  --secondary-foreground: 39 35% 94%;
+  --muted: 240 5% 12%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 240 5% 14%;
+  --accent-foreground: 39 35% 94%;
+  --destructive: 0 70% 45%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 18%;
+  --input: 0 0% 18%;
+  --ring: 45 65% 52%;
+  --radius: 0.5rem;
 }
-
-body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: system-ui, -apple-system, sans-serif;
-  overflow-x: hidden;
+html { scroll-behavior: smooth; }
+body { background: #050505; color: #f5f0e8; overflow-x: hidden; }
+::selection { background: #d4af37; color: #050505; }
+.hero-atmosphere {
+  background: radial-gradient(ellipse 32% 40% at 50% 47%, rgba(215,147,52,.18), transparent 78%),
+    radial-gradient(ellipse 50% 45% at 20% 60%, rgba(76,49,118,.15), transparent 75%),
+    radial-gradient(ellipse 48% 40% at 80% 35%, rgba(125,68,34,.12), transparent 75%);
 }
-
-.glass-panel {
-  background: rgba(18, 20, 29, 0.65);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-nav {
-  background: rgba(9, 10, 15, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.text-gold-gradient {
-  background: linear-gradient(135deg, #fef08a 0%, #d4af37 50%, #b45309 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.gold-glow {
-  box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.3);
-}
+.aura-aurora { background-image: radial-gradient(ellipse at 75% 25%, rgba(57,255,196,.22), transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(139,107,255,.19), transparent 60%); }
+.aura-eclipse { background-image: radial-gradient(ellipse at 80% 25%, rgba(255,90,45,.24), transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(0,0,0,.6), transparent 65%); }
+.aura-corona { background-image: radial-gradient(ellipse at 70% 25%, rgba(255,194,75,.25), transparent 55%), radial-gradient(ellipse at 20% 85%, rgba(242,135,46,.14), transparent 60%); }
+.aura-nocturne { background-image: radial-gradient(ellipse at 75% 25%, rgba(91,111,224,.24), transparent 55%), radial-gradient(ellipse at 20% 85%, rgba(56,45,122,.35), transparent 60%); }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
