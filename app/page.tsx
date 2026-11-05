@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import ImageReveal from "@/components/motion/ImageReveal";
 import Reveal from "@/components/motion/Reveal";
+import WaitlistSection from "@/components/waitlist/WaitlistSection";
 import { fragrances } from "@/data/fragrances";
 
 const focusRing =
@@ -53,10 +54,18 @@ export default function Home() {
               <span className="italic text-[#d4af37]">One source of light.</span>
             </h2>
           </div>
-          <p className="max-w-sm text-sm leading-7 text-white/60">
-            Each fragrance captures an atmospheric phenomenon, translating the language of
-            light into an intimate sensory experience.
-          </p>
+          <div className="max-w-sm">
+            <p className="text-sm leading-7 text-white/60">
+              Each fragrance captures an atmospheric phenomenon, translating the language of
+              light into an intimate sensory experience.
+            </p>
+            <Link
+              href="/collection"
+              className={`mt-3 inline-flex min-h-11 items-center text-xs uppercase tracking-[0.2em] text-[#d4af37] transition-colors duration-300 hover:text-white ${focusRing}`}
+            >
+              View the full collection →
+            </Link>
+          </div>
         </Reveal>
 
         <div className="grid gap-8 md:grid-cols-2">
@@ -285,6 +294,17 @@ export default function Home() {
           </Reveal>
         </div>
       </section>
+
+      {/* ------------------------------------------------------------ waitlist */}
+      <WaitlistSection
+        id="waitlist"
+        eyebrow="04 / The waitlist"
+        heading={
+          <>
+            Be first to experience <span className="italic text-[#d4af37]">the light.</span>
+          </>
+        }
+      />
 
       <Footer />
     </main>

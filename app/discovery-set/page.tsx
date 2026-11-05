@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import ParallaxImage from "@/components/motion/ParallaxImage";
 import Reveal from "@/components/motion/Reveal";
+import WaitlistSection from "@/components/waitlist/WaitlistSection";
 import { fragrances } from "@/data/fragrances";
 import { cn } from "@/lib/utils";
 
@@ -217,6 +218,16 @@ export default function DiscoverySetPage() {
           </p>
         </Reveal>
       </section>
+
+      <WaitlistSection
+        id="waitlist"
+        heading={
+          <>
+            Be first to experience <span className="italic text-[#d4af37]">the light.</span>
+          </>
+        }
+        body="The Discovery Set is a concept, and nothing about it has been decided. Join the list for fragrance development updates and launch announcements."
+      />
 
       <Footer />
     </main>

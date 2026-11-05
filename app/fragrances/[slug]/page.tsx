@@ -9,7 +9,9 @@ import Navbar from "@/components/Navbar";
 import ImageReveal from "@/components/motion/ImageReveal";
 import ParallaxImage from "@/components/motion/ParallaxImage";
 import Reveal from "@/components/motion/Reveal";
+import WaitlistSection from "@/components/waitlist/WaitlistSection";
 import { fragrances } from "@/data/fragrances";
+import { isFragrancePreference } from "@/lib/waitlist/validation";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -56,7 +58,7 @@ export default async function FragrancePage({ params }: Props) {
             <ol className="flex flex-wrap items-center gap-x-3 text-[10px] uppercase tracking-[0.25em] text-white/45">
               <li>
                 <Link
-                  href="/#collection"
+                  href="/collection"
                   className={`inline-flex min-h-11 items-center text-[#d4af37] transition-colors hover:text-white ${focusRing}`}
                 >
                   The collection
@@ -180,6 +182,19 @@ export default async function FragrancePage({ params }: Props) {
         </ol>
       </section>
 
+      {/* ------------------------------------------------------------- waitlist */}
+      <WaitlistSection
+        id="waitlist"
+        eyebrow={`${fragrance.name} · Concept in development`}
+        heading={
+          <>
+            Be first to experience <span className="italic text-[#d4af37]">the light.</span>
+          </>
+        }
+        body={`${fragrance.name} is a fragrance concept in development. Join our list for fragrance development updates and launch announcements.`}
+        defaultFragrance={isFragrancePreference(fragrance.slug) ? fragrance.slug : "all"}
+      />
+
       {/* ------------------------------------------------------------- continue */}
       <section className="border-t border-white/10 py-24 md:py-32">
         <div className="mx-auto max-w-7xl px-6">
@@ -189,7 +204,7 @@ export default async function FragrancePage({ params }: Props) {
                 Explore other atmospheres
               </h2>
               <Link
-                href="/#collection"
+                href="/collection"
                 className={`inline-flex min-h-11 items-center text-xs uppercase tracking-[0.2em] text-[#d4af37] transition-colors hover:text-white ${focusRing}`}
               >
                 View the collection →
