@@ -128,6 +128,15 @@ npx shadcn@latest add button
 
 Generated components land in `components/ui/`.
 
+## Collection and waitlist (Phase 3)
+
+`/collection` presents the four fragrance concepts, and `/waitlist` collects
+double opt-in sign-ups. The waitlist needs a Supabase database and a Resend
+account that do not exist yet, so by default it shows "not open yet" and saves
+nothing. Setup, environment variables (`.env.example`) and what is still
+incomplete are in [`docs/waitlist.md`](docs/waitlist.md). Run
+`npm run verify:waitlist` for its test suite.
+
 ## Roadmap
 
 ```
