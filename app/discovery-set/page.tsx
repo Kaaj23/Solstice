@@ -62,16 +62,16 @@ export default function DiscoverySetPage() {
           </div>
 
           <ol
-            className="rise-in mt-16 grid grid-cols-2 gap-px border border-white/10 bg-white/10 md:mt-24 md:grid-cols-4"
+            className="rise-in mt-16 grid grid-cols-2 gap-px border border-white/10 bg-white/10 md:mt-24 lg:grid-cols-4"
             style={{ animationDelay: "540ms" }}
           >
             {fragrances.map((fragrance) => (
               <li
                 key={fragrance.slug}
-                className={`bg-[#080808] p-5 md:p-7 aura-${fragrance.slug}`}
+                className={`min-w-0 bg-[#080808] p-4 sm:p-6 lg:p-7 aura-${fragrance.slug}`}
               >
                 <p className="font-mono text-[11px] text-[#d4af37]">{fragrance.number}</p>
-                <p className="mt-10 font-display text-2xl md:mt-16 md:text-3xl">
+                <p className="mt-10 font-display text-[clamp(1.05rem,5.2vw,1.5rem)] sm:text-2xl md:mt-16 lg:text-3xl">
                   {fragrance.name}
                 </p>
                 <p className="mt-2 text-[10px] uppercase tracking-[0.2em] text-white/60">
