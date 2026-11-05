@@ -14,7 +14,8 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx,json,css}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx,json,css}\"",
     "typecheck": "tsc --noEmit",
-    "verify:quiz": "npx --yes tsx scripts/verify-quiz.ts"
+    "verify:quiz": "npx --yes tsx scripts/verify-quiz.ts",
+    "verify:waitlist": "npx --yes tsx scripts/verify-waitlist.ts"
   },
   "dependencies": {
     "next": "15.5.22",
@@ -49,7 +50,9 @@
     "@radix-ui/react-scroll-area": "1.2.2",
     "@radix-ui/react-toast": "1.2.4",
     "@vercel/analytics": "1.4.1",
-    "@vercel/speed-insights": "1.1.0"
+    "@vercel/speed-insights": "1.1.0",
+    "postgres": "3.4.9",
+    "server-only": "0.0.1"
   },
   "devDependencies": {
     "@types/node": "22.10.10",
@@ -60,7 +63,8 @@
     "@eslint/eslintrc": "3.2.0",
     "eslint-config-prettier": "9.1.0",
     "prettier": "3.4.2",
-    "prettier-plugin-tailwindcss": "0.6.11"
+    "prettier-plugin-tailwindcss": "0.6.11",
+    "@electric-sql/pglite": "0.5.8"
   },
   "engines": {
     "node": ">=20.0.0"

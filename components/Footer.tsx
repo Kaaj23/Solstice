@@ -57,6 +57,14 @@ export default function Footer() {
 
       <div className="mx-auto mt-14 flex max-w-7xl flex-col gap-2 border-t border-white/10 px-6 pt-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
         <p>© {new Date().getFullYear()} SOLSTICE</p>
+        <nav aria-label="Footer: waitlist and privacy" className="flex flex-wrap gap-x-6">
+          <Link href="/waitlist" className={linkClass}>
+            Join the waitlist
+          </Link>
+          <Link href="/privacy" className={linkClass}>
+            Privacy notice
+          </Link>
+        </nav>
         <p className="font-mono text-[10px] uppercase tracking-[0.25em]">
           Scents defined by light
         </p>

@@ -67,13 +67,14 @@ export default function Navbar() {
         </nav>
 
         <Link
-          href="/#collection"
+          href="/waitlist"
+          aria-current={isCurrent("/waitlist") ? "page" : undefined}
           className={cn(
             "hidden border border-[#d4af37]/60 px-5 py-3 text-[10px] uppercase tracking-[0.2em] text-[#e8d6a4] transition-colors hover:bg-[#d4af37] hover:text-black xl:block",
             focusRing
           )}
         >
-          Explore
+          Join the waitlist
         </Link>
 
         <button
@@ -112,6 +113,17 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href="/waitlist"
+            aria-current={isCurrent("/waitlist") ? "page" : undefined}
+            onClick={() => setOpen(false)}
+            className={cn(
+              "my-3 flex min-h-12 items-center justify-center border border-[#d4af37]/60 text-[#e8d6a4] transition-colors hover:bg-[#d4af37] hover:text-black",
+              focusRing
+            )}
+          >
+            Join the waitlist
+          </Link>
         </nav>
       )}
     </header>
