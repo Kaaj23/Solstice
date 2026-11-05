@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "SOLSTICE",
   tagline: "Scents Defined by Light.",
   description: "SOLSTICE is a luxury niche fragrance house inspired by atmospheric light phenomena. Discover Aurora, Eclipse, Corona and Nocturne.",
-  url: "https://example.com",
+  url: "https://solstice-virid.vercel.app",
   ogImage: "/opengraph-image",
   locale: "en-US",
   themeColor: "#050505",
